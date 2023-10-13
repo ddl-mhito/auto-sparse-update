@@ -1,0 +1,17 @@
+name: Update Submodule
+
+on:
+  schedule:
+    # Runs every day at 4:00 UTC
+    - cron:  '0 4 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Update from Original Repository
+      run: ./pull_and_push.sh
